@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Lab Two</string>
+    <string-array name="spinner_items">
+        <item>        </item>
+        <item>BCA</item>
+        <item>BBA</item>
+        <item>CSIT</item>
+        <item>BIT</item>
+        <item>BIM</item>
+    </string-array>
+</resources>

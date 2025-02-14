@@ -2,6 +2,7 @@ package com.example.classonechaptertwo;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -37,6 +38,56 @@ public class WidgetExample extends AppCompatActivity {
         RadioButton radioButtonFemale = findViewById(R.id.radioBtnFemale);
 
         Spinner spin = findViewById(R.id.spinner);
+        String[] courses={
+                "c", "c#", "c++","Java", "JS", "Go lang"
+        };
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this,android.R.layout.simple_spinner_item,
+                courses
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin.setAdapter(adapter);
+        /*
+        * event handling
+        - events are ways to collect data about users interctions with interactive components of appication
+        -events quwue in fifo
+        - capture te event -> process the event
+                |		|
+        - event lisyeners vs event handlers
+        view.OnClickListener()	onClick()
+        * */
+        /*
+        * Event Listeners:
+        *   Interface in the view class that contains a single callback method
+        *   Methods will be called by Android framework when the view to which the listener is registered -> triggered by user
+        * Event Listeners Registration
+        *   Event handler gets registered with an event listeners        *
+        * Event Handlers
+        *   Event listener calls the event handlers
+        *
+        *   Event Handlers                  Event Listeners
+        *  onClick()                        OnClickListener()
+        *                                   -- user -> touch/ clicks/ focuses upon any widget(button, text, image, etc)
+        * ______________________________________________________________________________________________________________
+        * onLongClick()                     onLongClickListener()
+        *                                   -- for one or more second
+        * --------------------------------------------------------------------------------------------------------------
+        * onFocusChange()                   onFocusChangeListener()
+        *                                   -- Widget looses its focus i.e. user goes away from the view item.
+        * --------------------------------------------------------------------------------------------------------------
+        * onMenuItemClick()                 OnMenuItemClickListener()
+        * ---------------------------------------------------------------------------------------------------------------
+        * onTouch()
+        * onKey()
+        *
+        *
+        *
+        *   string.xml
+        *       -> String - basically used for string thoughout ur application
+        *       -> String arrau
+        *   color.xml
+        *
+        * */
 
         Button btnOne = findViewById(R.id.btn1);
         btnOne.setOnClickListener(new View.OnClickListener() {
