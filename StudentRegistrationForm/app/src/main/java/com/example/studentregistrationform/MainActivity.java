@@ -1,5 +1,6 @@
 package com.example.studentregistrationform;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;import android.view.View;
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         Spinner spin = findViewById(R.id.spinner);
         Button btnOne = findViewById(R.id.btn1);
+
+
+
         btnOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("Gender",gender);
                     intent.putExtra("Course",selectedOption);
                     startActivity(intent);
-
                 }
 
             }

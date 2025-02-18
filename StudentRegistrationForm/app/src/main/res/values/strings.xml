@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Lab Two</string>
     <string-array name="spinner_items">
-        <item>        </item>
+        <item>Computer Science</item>
         <item>BCA</item>
         <item>BBA</item>
         <item>CSIT</item>

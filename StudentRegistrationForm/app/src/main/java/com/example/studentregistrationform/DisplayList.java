@@ -1,6 +1,8 @@
 package com.example.studentregistrationform;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -21,7 +23,14 @@ public class DisplayList extends AppCompatActivity {
         String age = getIntent().getStringExtra("Age");
         String gender = getIntent().getStringExtra("Gender");
         String course = getIntent().getStringExtra("Course");
+        Button btnBack = findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                finish();  // Finish DisplayList activity
+            }
+        });
         TextView view1 = findViewById(R.id.view1);
         view1.setText(name);
         TextView view2 = findViewById(R.id.view2);
