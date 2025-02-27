@@ -1,7 +1,10 @@
 package com.example.chapterfour;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +22,10 @@ public class LifeCycleActivity extends AppCompatActivity {
 
         Log.d("MD_ON_CREATE","Activity is created");
         Button nextButton = findViewById(R.id.next_button);
+          if (nextButton == null) {
+            Log.e("LifeCycleActivity", "nextButton is null. Check your XML layout.");
+        }
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

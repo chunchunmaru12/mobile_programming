@@ -1,7 +1,10 @@
 package com.example.chapterfour;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,48 +18,55 @@ public class LifeCycleActivityTwo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        Log.d("TWO_ON_CREATE","activity created");
-        Button backButton = findViewById(R.id.back_button);
-        backButton.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_life_cycle_two);
+
+        Log.d("MD_Two_ON_CREATE","Activity is created");
+        Button nextButton = findViewById(R.id.back_button);
+        if (nextButton == null) {
+            Log.e("LifeCycleActivity", "nextButton is null. Check your XML layout.");
+        }
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); // Closes current activity and returns to the previous one
+                finish();
             }
         });
     }
+
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("TWO_ON_START","Activity is started");
+        Log.d("MD_Two_ON_START","Activity is started");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("TWO_ON_RESUME","Activity is resumed");
+        Log.d("MD_Two_ON_RESUME","Activity is resumed");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d("TWO_ON_PAUSE","Activity is paused");
+        Log.d("MD_Two_ON_PAUSE","Activity is paused");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d("TWO_ON_STOP","Activity is stopped");
+        Log.d("MD_Two_ON_STOP","Activity is stopped");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("TWO_ON_DESTROY","Activity is destroyed");
+        Log.d("MD_Two_ON_DESTROY","Activity is destroyed");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d("TWO_ON_RESTART","Activity is restarted");
+        Log.d("MD_Two_ON_RESTART","Activity is restarted");
     }
 }

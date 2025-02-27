@@ -5,12 +5,22 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".LifeCycleActivityTwo">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is second activity"
+        android:textSize="30dp"
+        android:textStyle="bold"
+
+        />
     <Button
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go Back"
-        android:layout_centerInParent="true"/>
+        android:text="Go Back to first activity"
+       />
 
 </LinearLayout>
