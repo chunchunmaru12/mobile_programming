@@ -13,13 +13,20 @@
         android:theme="@style/Theme.ChapterFour"
         tools:targetApi="31">
         <activity
-            android:name=".LifeCycleActivityTwo"
+            android:name=".ChildeActivity"
             android:exported="false" />
         <activity
             android:name=".LifeCycleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LifeCycleActivityTwo"
+            android:exported="false" />
+        <activity
+            android:name=".ParentActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
