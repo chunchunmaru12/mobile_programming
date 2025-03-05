@@ -1,6 +1,7 @@
 package com.example.chapterfour;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.ArrayList;
 
 public class LifeCycleActivity extends AppCompatActivity {
 
@@ -25,12 +28,39 @@ public class LifeCycleActivity extends AppCompatActivity {
           if (nextButton == null) {
             Log.e("LifeCycleActivity", "nextButton is null. Check your XML layout.");
         }
+          Button browse=findViewById(R.id.browserBtn);
+          browse.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+//                  Intent intent = new Intent(Intent.ACTION_VIEW);
+//                  intent.setData(Uri.parse("geo:37.7749, -122.4194?1=san+francisco"));
+                  //Intent intent = new Intent(Intent.ACTION_SENDTO);
+//                  intent.setData(Uri.parse("mailto:example@gmail.com"));
+//                  intent.putExtra(Intent.EXTRA_SUBJECT,"BCA Testing");
+
+                 // intent.setData(Uri.parse("https://www.google.com"));
+                  Intent intent = new Intent(Intent.ACTION_PICK);
+                  intent.setType("image/*");
+
+                  startActivity(intent);
+              }
+          });
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LifeCycleActivity.this, LifeCycleActivityTwo.class);
+                intent.putExtra("STRING_KEY", "HELLO, ANDROID!!!!!");
+                intent.putExtra("INT_KEY",42);
+                intent.putExtra("BOOLEAN_KEY", true);
+
+                ArrayList<String> myList = new ArrayList<>();
+                myList.add("Item1 ");
+                myList.add("Item2 ");
+                intent.putStringArrayListExtra("LIST_KEY",myList);
+
                 startActivity(intent);
+
             }
         });
     }

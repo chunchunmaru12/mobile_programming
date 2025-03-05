@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.ArrayList;
 
 public class LifeCycleActivityTwo extends AppCompatActivity {
 
@@ -25,7 +28,13 @@ public class LifeCycleActivityTwo extends AppCompatActivity {
         if (nextButton == null) {
             Log.e("LifeCycleActivity", "nextButton is null. Check your XML layout.");
         }
-
+        Intent intent = getIntent();
+        String mystring = intent.getStringExtra("STRING_KEY");
+        int myInt = intent.getIntExtra("INT_KEY",0);
+        boolean myBoolean = intent.getBooleanExtra("BOOLEAN_KEY",false);
+        ArrayList<String> myList = intent.getStringArrayListExtra("LIST_KEY");
+        TextView textView = findViewById(R.id.TextView);
+        textView.setText("Recieved Data from first Activity:\n String : "+mystring+"\n Int : "+myInt+"\n Boolean: "+myBoolean+"\n List :"+myList);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
