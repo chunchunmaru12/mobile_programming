@@ -7,21 +7,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FragmentExample"
-    android:background="@color/black">
-    <fragment
-        android:id="@+id/fragmentFirst"
-        android:name="com.example.chapterfive.FragmentFirst"
+    >
+<!--    <fragment-->
+<!--        android:id="@+id/fragmentFirst"-->
+<!--        android:name="com.example.chapterfive.FragmentFirst"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        />-->
+<!--    <fragment-->
+<!--        android:id="@+id/fragmentSecond"-->
+<!--        android:name="com.example.chapterfive.FragmentSecond"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        />-->
+    <FrameLayout
+        android:id="@+id/fragmentLayoutOne"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         />
-    <fragment
-        android:id="@+id/fragmentSecond"
-        android:name="com.example.chapterfive.FragmentSecond"
+    <FrameLayout
+        android:id="@+id/fragmentLayoutTwo"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         />
-    
+
 
 </LinearLayout>

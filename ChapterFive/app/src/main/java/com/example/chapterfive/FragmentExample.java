@@ -1,6 +1,7 @@
 package com.example.chapterfive;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,10 +16,16 @@ public class FragmentExample extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_fragment_example);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragmentLayoutOne, new FragmentFirst())
+                .commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragmentLayoutTwo, new FragmentSecond())
+                .commit();
+
+
     }
 }
