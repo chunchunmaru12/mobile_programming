@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".CalculatorInput">
+    <TextView
+        android:text="Calculate Area and Perimeter"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        />
+
+    <EditText
+        android:id="@+id/textLength"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+
+        android:hint="Enter Your Length"
+        android:layout_margin="20dp"
+        />
+
+    <EditText
+        android:id="@+id/textBreadth"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:hint="Enter Your Breadth"
+        />
+    <Button
+        android:id="@+id/calcResult"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Calculate"
+        />
+</LinearLayout>

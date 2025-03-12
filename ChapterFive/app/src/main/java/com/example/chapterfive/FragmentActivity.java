@@ -43,6 +43,9 @@ public class FragmentActivity extends AppCompatActivity {
 //                        .commit();
             }
         });
+        FragmentOne oneFragment= new FragmentOne();
+        FragmentManager fragmentManager= getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragTest, oneFragment).commit();
 
     }
 }

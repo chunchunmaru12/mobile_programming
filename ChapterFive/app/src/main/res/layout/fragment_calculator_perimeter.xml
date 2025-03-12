@@ -5,23 +5,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".FragmentOne">
+    tools:context=".CalculatorPerimeter">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fragment One"
-        android:textAlignment="center"
         android:textSize="32sp"
         android:textColor="@color/black"
+        android:text="Perimeter:"
+        android:textAlignment="center"
         />
-    <Button
-        android:id="@+id/fragBtnOne"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/resPeri"
         android:layout_width="wrap_content"
-        android:text="Go to Fragment Two"
-
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:textColor="@color/black"
         />
 
 </LinearLayout>
