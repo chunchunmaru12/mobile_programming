@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:textSize="32sp"
         android:textColor="@color/black"
-        android:text="Area:"
+        android:text="@string/area"
         android:textAlignment="center"
         />
     <TextView
@@ -21,10 +21,5 @@
         android:textSize="32sp"
         android:textColor="@color/black"
          />
-    <Button
-        android:id="@+id/calcPeri"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Get Perimeter"
-        />
+
 </LinearLayout>

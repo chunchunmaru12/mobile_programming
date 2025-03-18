@@ -7,7 +7,7 @@
     android:gravity="center"
     tools:context=".CalculatorInput">
     <TextView
-        android:text="Calculate Area and Perimeter"
+        android:text="@string/calculate_area_and_perimeter"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="32sp"
@@ -20,8 +20,7 @@
         android:id="@+id/textLength"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-
-        android:hint="Enter Your Length"
+        android:hint="@string/enter_your_length"
         android:layout_margin="20dp"
         />
 
@@ -33,9 +32,16 @@
         android:hint="Enter Your Breadth"
         />
     <Button
-        android:id="@+id/calcResult"
+        android:id="@+id/calcPeri"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Calculate"
+        android:text="@string/get_perimeter"
         />
+    <Button
+        android:id="@+id/calcArea"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Get Area"
+        />
+
 </LinearLayout>
