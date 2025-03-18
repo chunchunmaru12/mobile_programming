@@ -13,10 +13,10 @@
         android:theme="@style/Theme.ChapterFive"
         tools:targetApi="31">
         <activity
-            android:name=".CalculationApp"
+            android:name=".FragmentActivity"
             android:exported="false" />
         <activity
-            android:name=".FragmentActivity"
+            android:name=".CalculationApp"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
