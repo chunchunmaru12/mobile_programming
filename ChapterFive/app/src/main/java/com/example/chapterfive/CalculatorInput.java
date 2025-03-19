@@ -20,12 +20,8 @@ public class CalculatorInput extends Fragment {
         View view= inflater.inflate(R.layout.fragment_calculator_input, container, false);
         EditText length=view.findViewById(R.id.textLength);
         EditText breadth=view.findViewById(R.id.textBreadth);
-
-
         Button calcArea=view.findViewById(R.id.calcArea);
         Button calcPeri=view.findViewById(R.id.calcPeri);
-
-
         calcArea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,7 +32,7 @@ public class CalculatorInput extends Fragment {
                 bundle.putString("area", String.valueOf(area));
                 CalculatorArea areaFragment = new CalculatorArea();
                 areaFragment.setArguments(bundle);
-                getParentFragmentManager().beginTransaction().replace(R.id.fragmentCalculator,areaFragment).commit();
+                getParentFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentCalculator,areaFragment).commit();
 
             }
         });
@@ -50,7 +46,7 @@ public class CalculatorInput extends Fragment {
                 bundle.putString("perimeter", String.valueOf(perimeter));
                 CalculatorPerimeter periFragment= new CalculatorPerimeter();
                 periFragment.setArguments(bundle);
-                getParentFragmentManager().beginTransaction().replace(R.id.fragmentCalculator,periFragment).commit();
+                getParentFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.fragmentCalculator,periFragment).commit();
             }
         });
 
