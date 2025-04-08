@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+
+    >
+
+    <ImageView
+        android:id="@+id/rvImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@mipmap/ic_launcher_foreground"
+        />
+    <TextView
+        android:id="@+id/rvName"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Furina"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:layout_toEndOf="@+id/rvImage"
+        android:padding="5dp"
+        />
+    <TextView
+        android:id="@+id/rvTextPhone"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="+977-985112105"
+        android:textSize="20sp"
+        android:layout_toEndOf="@+id/rvImage"
+        android:layout_below="@+id/rvName"
+        android:padding="5dp"
+
+        />
+</RelativeLayout>
