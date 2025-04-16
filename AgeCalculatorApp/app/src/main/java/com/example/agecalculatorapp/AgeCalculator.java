@@ -15,16 +15,27 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class AgeCalculator extends AppCompatActivity {
-
+    int year,month,day;
+    TextView inputBirth,currentDate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_age_calculator);
-
+        Calendar c = Calendar.getInstance();
+        year =c.get(Calendar.YEAR);
+        month =c.get(Calendar.MONTH);
+        day = c.get(Calendar.DAY_OF_MONTH);
+        inputBirth=findViewById(R.id.inputBirthDate);
+        currentDate=findViewById(R.id.currentDateTxt);
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd/MM/yyyy");
+        String todayDate=simpleDateFormat.format(c.getTime());
+        inputBirth.setText(todayDate);
+        currentDate.setText(todayDate);
         Button birthDate=findViewById(R.id.btnBirthDate);
         birthDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,11 +52,8 @@ public class AgeCalculator extends AppCompatActivity {
         });
     }
     public  void showBirthCalendar(){
-        final Calendar c = Calendar.getInstance();
-        int year =c.get(Calendar.YEAR);
-        int month =c.get(Calendar.MONTH);
-        int day = c.get(Calendar.DAY_OF_MONTH);
-        TextView inputBirth=findViewById(R.id.inputBirthDate);
+
+
         DatePickerDialog datePickerDialog=new DatePickerDialog(
                 this,
                 new DatePickerDialog.OnDateSetListener() {
@@ -64,6 +72,8 @@ public class AgeCalculator extends AppCompatActivity {
         int month =c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
         TextView inputBirth=findViewById(R.id.currentDateTxt);
+        inputBirth.setText(year+"-"+(month+1)+"-"+day);
+
         DatePickerDialog datePickerDialog=new DatePickerDialog(
                 this,
                 new DatePickerDialog.OnDateSetListener() {
