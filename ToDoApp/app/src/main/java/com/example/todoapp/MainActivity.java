@@ -37,7 +37,30 @@ public class MainActivity extends AppCompatActivity {
         todoAdapter = new TodoAdapter(todoList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(todoAdapter);
-        
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                TodoModel deletedTodo = todoList.get(position);
+                todoList.remove(position);
+                todoAdapter.notifyItemRemoved(position);
+
+                Snackbar.make(findViewById(R.id.rootLayout), deletedTodo.getTodoText(), Snackbar.LENGTH_LONG)
+                        .setAction("UNDO", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                todoList.add(position, deletedTodo);
+                                todoAdapter.notifyItemInserted(position);
+                            }
+                        }).show();
+            }
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerView);
         buttonAddTodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
