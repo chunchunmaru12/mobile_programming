@@ -68,10 +68,9 @@ public class DBHelper extends SQLiteOpenHelper {
         db.update("mytable",contentValues,"id=?",new String[]{String.valueOf(id)});
         db.close();
     }
-    public Cursor selectData(){
-        SQLiteDatabase db= this.getReadableDatabase();
-        String query="SELECT * FROM mytable";
-        return db.rawQuery(query,null);
+    public Cursor selectData() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM mytable", null);
     }
 
     public void deleteData(int id){
