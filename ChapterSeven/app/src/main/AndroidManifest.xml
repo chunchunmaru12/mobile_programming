@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,8 +15,8 @@
         android:theme="@style/Theme.ChapterSeven"
         tools:targetApi="31">
         <activity
-            android:name=".CRUDAndroidApp"
-            android:exported="true">
+            android:name=".ApiExampleActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,9 +24,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".BasicDatabaseActivity"
+            android:name=".JSONActivity"
             android:exported="false"/>
 
+        <activity
+            android:name=".CRUDAndroidApp"
+            android:exported="false" />
+        <activity
+            android:name=".BasicDatabaseActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
