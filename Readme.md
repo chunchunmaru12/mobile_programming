@@ -1,8 +1,8 @@
 # Android Development Labs
 
 ### 📚 LAB TWO: Student Registration Form
-![Student Registration Form - Part 1](one_Lab_Two.jpg)
-![Student Registration Form - Part 2](two_Lab_Two.jpg)
+![Student Registration Form - Part 1](<img src="one_Lab_Two.jpg" width="400">)
+![Student Registration Form - Part 2](<img src="two_Lab_Two.jpg" width="400">)
 
 ---
 
@@ -12,7 +12,7 @@
 ---
 
 ### ✅ LAB FOUR: TODO App
-![TODO App - Main Screen](ToDo1.jpg)
+![TODO App - Main Screen]
 ![TODO App - Add Task](ToDo2.jpg)
 ![TODO App - Edit Task](ToDo3.jpg)
 ![TODO App - Task Details](ToDo4.jpg)
@@ -34,5 +34,3 @@
 
 Feel free to adjust the image sizes directly on GitHub using the width attribute if needed:
 
-```markdown
-<img src="one_Lab_Two.jpg" width="400">
