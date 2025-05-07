@@ -7,164 +7,163 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".AgeCalculator">
-  <LinearLayout
-      android:orientation="horizontal"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_margin="20dp"
-      >
-      <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
+    tools:context=".AgeCalculator"
+    android:padding="16dp">
 
-          >
-          <TextView
-              android:id="@+id/inputBirthDate"
-              android:layout_width="140dp"
-              android:layout_height="40dp"
-              android:textColor="@color/white"
-              android:textStyle="bold"
-              android:textAlignment="center"
-              android:padding="10dp"
-              android:background="@android:color/black"
-              />
-          <Button
-              android:id="@+id/btnBirthDate"
-              android:layout_width="140dp"
-              android:layout_height="40dp"
-              android:text="BirthDate"
-              android:background="@android:color/background_dark"
-              />
-      </LinearLayout>
+    <!-- Date Selection Row -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
 
-      <TextView
-          android:text="TO"
-          android:layout_margin="20dp"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:textStyle="bold"
-          android:textColor="@android:color/background_dark"
-          />
-      <LinearLayout
-          android:orientation="vertical"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
+        <!-- Birth Date Column -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="20dp">
 
-          >
-          <TextView
-              android:id="@+id/currentDateTxt"
-              android:layout_width="140dp"
-              android:layout_height="40dp"
-              android:textColor="@color/white"
-              android:textStyle="bold"
-              android:textAlignment="center"
-              android:padding="10dp"
-              android:background="@android:color/black"
-              />
-          <Button
-              android:id="@+id/btnCurrentDate"
-              android:layout_width="140dp"
-              android:layout_height="40dp"
-              android:text="Today's Date"
-              android:background="@android:color/background_dark"
-              />
+            <TextView
+                android:id="@+id/inputBirthDate"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@android:color/black" />
 
-      </LinearLayout>
+            <Button
+                android:id="@+id/btnBirthDate"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:text="BirthDate"
+                android:background="@android:color/background_dark" />
+        </LinearLayout>
 
-  </LinearLayout>
+        <!-- Separator -->
+        <TextView
+            android:text="TO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@android:color/background_dark"
+            android:layout_gravity="center"
+            android:layout_marginEnd="20dp" />
+
+        <!-- Current Date Column -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/currentDateTxt"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@android:color/black" />
+
+            <Button
+                android:id="@+id/btnCurrentDate"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:text="Today's Date"
+                android:background="@android:color/background_dark" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Calculate Button -->
     <Button
         android:id="@+id/calculateAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calcualte Age"
-        />
+        android:text="Calculate Age"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Result Row -->
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        >
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+
+        <!-- Year Column -->
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:layout_marginEnd="10dp">
 
-            >
             <TextView
                 android:id="@+id/resYear"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:background="@android:color/background_dark"
-                />
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@android:color/background_dark" />
+
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:text="Year"
-                android:background="@color/purple_500"
-                android:paddingTop="10dp"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:textColor="@color/white"
-                />
+                android:background="@color/purple_500"
+                android:paddingTop="10dp" />
         </LinearLayout>
 
-
+        <!-- Month Column -->
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:layout_marginEnd="10dp">
 
-
-            >
             <TextView
                 android:id="@+id/resMonth"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:background="@android:color/black"
-                />
-            <TextView
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@android:color/black" />
 
+            <TextView
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:text="Month"
-                android:background="@color/purple_500"
-                android:paddingTop="10dp"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:textColor="@color/white"
-
-                />
-
+                android:background="@color/purple_500"
+                android:paddingTop="10dp" />
         </LinearLayout>
 
+        <!-- Day Column -->
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:orientation="vertical">
 
-            >
             <TextView
                 android:id="@+id/resDay"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:background="@android:color/black"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@android:color/black" />
 
-                />
             <TextView
-
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:text="Day"
-                android:background="@color/purple_500"
-                android:paddingTop="10dp"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:textColor="@color/white"
-                />
+                android:background="@color/purple_500"
+                android:paddingTop="10dp" />
         </LinearLayout>
-
     </LinearLayout>
-
 </LinearLayout>
