@@ -1,36 +1,56 @@
 # Android Development Labs
 
-### 📚 LAB TWO: Student Registration Form
-![Student Registration Form - Part 1](<img src="one_Lab_Two.jpg" width="400">)
-![Student Registration Form - Part 2](<img src="two_Lab_Two.jpg" width="400">)
+## 📚 LAB TWO: Student Registration Form
+
+<p align="center">
+  <img src="one_Lab_Two.jpg" width="400">
+  <img src="two_Lab_Two.jpg" width="400">
+</p>
 
 ---
 
-### 🕰️ LAB THREE: Age Calculator
-![Age Calculator](AgeCalc.jpg)
+## 🕰️ LAB THREE: Age Calculator
+
+<p align="center">
+  <img src="AgeCalc.jpg" width="400">
+</p>
 
 ---
 
-### ✅ LAB FOUR: TODO App
-![TODO App - Main Screen]
-![TODO App - Add Task](ToDo2.jpg)
-![TODO App - Edit Task](ToDo3.jpg)
-![TODO App - Task Details](ToDo4.jpg)
-![TODO App - Task List](ToDo5.jpg)
-![TODO App - Task Completed](ToDo6.jpg)
+## ✅ LAB FOUR: TODO App
+
+<p align="center">
+  <img src="ToDo1.jpg" width="400">
+  <img src="ToDo2.jpg" width="400">
+  <img src="ToDo3.jpg" width="400">
+  <img src="ToDo4.jpg" width="400">
+  <img src="ToDo5.jpg" width="400">
+  <img src="ToDo6.jpg" width="400">
+</p>
 
 ---
 
-> Each lab focuses on different core concepts of Android development, including user input handling, date calculations, and dynamic task management.
+## 🚀 Key Features
 
----
-
-### 🚀 Key Features
 - **Student Registration Form:** User-friendly input fields, form validation, and error handling.
 - **Age Calculator:** Quick and accurate age calculation based on user input.
 - **TODO App:** Task management with add, edit, delete, and complete functionality.
 
 ---
 
-Feel free to adjust the image sizes directly on GitHub using the width attribute if needed:
+### 📂 How to Use
 
+1. Clone the repository:  
+git clone https://github.com/chunchunmaru12/mobile_programming.git
+2. Open the project in Android Studio.
+3. Run the application on an emulator or a physical device.
+
+---
+
+### 💡 Contribution Guidelines
+
+- Fork the repository.
+- Make changes in a new branch.
+- Submit a pull request with a clear description.
+
+---
