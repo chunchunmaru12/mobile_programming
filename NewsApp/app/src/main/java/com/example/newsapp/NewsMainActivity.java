@@ -5,6 +5,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -46,6 +47,7 @@ public class NewsMainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerViewTodos);
         EditText searchBar = findViewById(R.id.searchBar);
+        Button searchButton = findViewById(R.id.searchButton);
         emptyPlaceholder = findViewById(R.id.emptyPlaceholder);
         loadingSpinner = findViewById(R.id.loadingSpinner);
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
@@ -56,32 +58,23 @@ public class NewsMainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
+        // Initialize the request queue
         requestQueue = Volley.newRequestQueue(this);
-        fetchNews();
 
-        searchBar.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                filterNews(charSequence.toString());
+        // Search button click listener
+        searchButton.setOnClickListener(v -> {
+            String query = searchBar.getText().toString().trim();
+            if (!query.isEmpty()) {
+                fetchNews(query);
+            } else {
+                Toast.makeText(this, "Please enter a search term", Toast.LENGTH_SHORT).show();
             }
-
-            @Override
-            public void afterTextChanged(Editable editable) {}
         });
+        fetchNews("");
 
-        swipeRefreshLayout.setOnRefreshListener(() -> {
-            // Clear the old data before refreshing
-            newsList.clear();
-            filteredNewsList.clear();
-            adapter.notifyDataSetChanged();
-            fetchNews();
-        });
     }
 
-    private void fetchNews() {
+    private void fetchNews(String query) {
         if (!swipeRefreshLayout.isRefreshing()) {
             loadingSpinner.setVisibility(View.VISIBLE);
             emptyPlaceholder.setVisibility(View.GONE);
