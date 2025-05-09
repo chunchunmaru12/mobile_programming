@@ -30,12 +30,22 @@
 
 ---
 
+##  LAB FIVE: NEWS App
+
+<p align="center">
+  <img src="NewsApp1.jpg" width="400">
+  <img src="NewsApp2.jpg" width="400">
+</p>
+
+---
+
 ## 🚀 Key Features
 
 - **Student Registration Form:** User-friendly input fields, form validation, and error handling.
 - **Age Calculator:** Quick and accurate age calculation based on user input.
 - **TODO App:** Task management with add, edit, delete, and complete functionality.
-
+- **NEWS App:** Real-time news updates with keyword search, article previews, and seamless sharing options.
+ 
 ---
 
 ### 📂 How to Use
