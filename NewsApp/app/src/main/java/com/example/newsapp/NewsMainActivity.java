@@ -70,75 +70,80 @@ public class NewsMainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please enter a search term", Toast.LENGTH_SHORT).show();
             }
         });
-        fetchNews("");
+        fetchNews("tesla");
 
     }
 
-    private void fetchNews(String query) {
-        if (!swipeRefreshLayout.isRefreshing()) {
-            loadingSpinner.setVisibility(View.VISIBLE);
-            emptyPlaceholder.setVisibility(View.GONE);
-        }
+    public void fetchNews(String query) {
+        String url = "https://newsapi.org/v2/everything?q=" + query + "&apiKey=" + "53ec1625ca314db6bd6499990a398f2c";
 
-        String url = "https://newsapi.org/v2/everything?q=tesla&from=2025-04-07&sortBy=publishedAt&apiKey=53ec1625ca314db6bd6499990a398f2c";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                response -> {
-                    try {
-                        JSONArray articles = response.getJSONArray("articles");
-                        newsList.clear();
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-                        for (int i = 0; i < articles.length(); i++) {
-                            JSONObject article = articles.getJSONObject(i);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONArray articles = response.getJSONArray("articles");
+                            List<NewsData> newsItemsList = new ArrayList<>();
 
-                            String title = article.optString("title", "No Title Available");
-                            String description = article.optString("description", "No Description Available");
-                            String date = article.optString("publishedAt", "Unknown Date");
-                            String imageUrl = article.optString("urlToImage", "");
-                            String articleUrl = article.optString("url", "");
-                            NewsData newsData = new NewsData(title, description, date, imageUrl, articleUrl);
-                            newsList.add(newsData);
+                            for (int i = 0; i < articles.length(); i++) {
+                                JSONObject article = articles.getJSONObject(i);
+
+                                String title = article.getString("title");
+                                String description = article.getString("description");
+                                String publishedAt = article.getString("publishedAt");
+                                String urlToImage = article.getString("urlToImage");
+                                String articleUrl = article.optString("url", "");
+                                NewsData newsItem = new NewsData(title, description, publishedAt, urlToImage,articleUrl);
+                                newsItemsList.add(newsItem);
+                            }
+                            filteredNewsList.clear();
+                            filteredNewsList.addAll(newsItemsList);
+                            updatePlaceholderVisibility();
+                            adapter.notifyDataSetChanged();
+
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        } finally {
+                            loadingSpinner.setVisibility(View.GONE);
+                            swipeRefreshLayout.setRefreshing(false);
                         }
-
-                        filteredNewsList.clear();
-                        filteredNewsList.addAll(newsList);
-                        updatePlaceholderVisibility();
-                        adapter.notifyDataSetChanged();
-
-                        Log.d("inside", "meow");
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } finally {
-                        loadingSpinner.setVisibility(View.GONE);
-                        swipeRefreshLayout.setRefreshing(false);
                     }
-
                 },
-                error -> {
-                    if (error.networkResponse != null) {
-                        String errorMsg = new String(error.networkResponse.data);
-                        int statusCode = error.networkResponse.statusCode;
-                        Log.e("NewsAppError", "Status Code: " + statusCode);
-                        Log.e("NewsAppError", "Error Response: " + errorMsg);
-                        Toast.makeText(NewsMainActivity.this, "Request failed: " + statusCode, Toast.LENGTH_SHORT).show();
-                    } else {
-                        Log.e("NewsAppError", "Network error without response.");
-                        Toast.makeText(NewsMainActivity.this, "Network error. No response from server.", Toast.LENGTH_SHORT).show();
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+
+                        if (error.networkResponse != null) {
+                            int statusCode = error.networkResponse.statusCode;
+                            String body = new String(error.networkResponse.data);
+                            Toast.makeText(NewsMainActivity.this,
+                                    "HTTP " + statusCode + "\n" + body,
+                                    Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(NewsMainActivity.this,
+                                    "Network error: " + error.toString(),
+                                    Toast.LENGTH_LONG).show();
+                        }
                     }
-                    error.printStackTrace();
                 }
         ) {
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3");
-                headers.put("Accept-Language", "en-US,en;q=0.5");
+                headers.put("User-Agent", "Mozilla/5.0");
                 return headers;
             }
         };
 
-        requestQueue.add(request);
-
+        requestQueue.add(jsonObjectRequest);
     }
 
 
